@@ -1,5 +1,5 @@
 /*!
- * @tawaship/emitter - v1.1.0
+ * @tawaship/emitter - v1.1.1
  * 
  * @author tawaship (makazu.mori@gmail.com)
  * @license MIT
@@ -29,7 +29,7 @@ class Emitter {
         this._events = {};
     }
     /**
-     * @property {string[]}
+     * @member {string[]}
      * @readonly
      */
     get eventNames() {

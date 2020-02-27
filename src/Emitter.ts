@@ -29,7 +29,7 @@ export default class Emitter {
 	private _events: { [type: string]: EmitterEvents } = {};
 	
 	/**
-	 * @property {string[]}
+	 * @member {string[]}
 	 * @readonly
 	 */
 	get eventNames(): string[] {
