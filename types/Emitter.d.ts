@@ -20,6 +20,7 @@ export default class Emitter {
     /**
      * @member {string[]}
      * @readonly
+     * @since 1.1.1
      */
     get eventNames(): string[];
     /**
