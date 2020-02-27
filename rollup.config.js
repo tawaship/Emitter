@@ -5,9 +5,12 @@ import buble from '@rollup/plugin-buble';
 import { terser } from 'rollup-plugin-terser';
 import del from 'del';
 
+const version = require('./package.json').version;
+const [ major, minor, patch ] = version.split('.');
+
 const banner = [
 	'/*!',
-	` * @tawaship/emitter - v${require('./package.json').version}`,
+	` * @tawaship/emitter - v${major}`,
 	' * ',
 	' * @author tawaship (makazu.mori@gmail.com)',
 	' * @license MIT',
