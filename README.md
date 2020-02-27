@@ -12,7 +12,7 @@
 
 ```sh
 cd /path/to
-npm install '@tawaship/emitter';
+npm install --save @tawaship/emitter
 ```
 
 ### for NPM
