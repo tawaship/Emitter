@@ -27,6 +27,13 @@ class Emitter {
         this._events = {};
     }
     /**
+     * @property {string[]}
+     * @readonly
+     */
+    get eventNames() {
+        return Object.keys(this._events);
+    }
+    /**
      * Register event.
      *
      * @private
@@ -147,7 +154,7 @@ class Emitter {
      */
     clear(type = '') {
         if (this._events[type]) {
-            this._events[type] = [];
+            delete (this._events[type]);
         }
         else {
             this._events = {};

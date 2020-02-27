@@ -90,16 +90,16 @@ describe('Emitter', () => {
 		
 		new Emitter()
 			.on('ev', a => {
-				console.log('ev', a);
+				total += a;
 			})
 			.on('ev2', a => {
-				console.log('ev', a);
+				total += a;
 			})
 			.on('ev3', a => {
-				console.log('ev', a);
+				total += a;
 			})
 			.on('ev4', a => {
-				console.log('ev', a);
+				total += a;
 			})
 			.clear()
 			.emit('ev', 1)
@@ -108,5 +108,31 @@ describe('Emitter', () => {
 			.emit('ev4', 1);
 		
 		assert.equal(total, 0);
+	});
+	
+	it('emit all events', () => {
+		let total = 0;
+		
+		const emitter = new Emitter()
+			.on('ev', a => {
+				total += a;
+			})
+			.on('ev2', a => {
+				total += a;
+			})
+			.on('ev3', a => {
+				total += a;
+			})
+			.on('ev4', a => {
+				total += a;
+			})
+			.clear('ev4');
+		
+		const eventNames = emitter.eventNames;
+		for (let i = 0; i < eventNames.length; i++) {
+			emitter.emit(eventNames[i], 1);
+		}
+		
+		assert.equal(total, 3);
 	});
 });

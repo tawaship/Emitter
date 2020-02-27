@@ -9,6 +9,14 @@ var Emitter = function() {
     var Emitter = function Emitter() {
         this._events = {};
     };
+    var prototypeAccessors = {
+        eventNames: {
+            configurable: true
+        }
+    };
+    prototypeAccessors.eventNames.get = function() {
+        return Object.keys(this._events);
+    };
     Emitter.prototype._on = function _on(type, func, once) {
         if (!type || !func) {
             return this;
@@ -93,12 +101,13 @@ var Emitter = function() {
             type = "";
         }
         if (this._events[type]) {
-            this._events[type] = [];
+            delete this._events[type];
         } else {
             this._events = {};
         }
         return this;
     };
+    Object.defineProperties(Emitter.prototype, prototypeAccessors);
     return Emitter;
 }();
 //# sourceMappingURL=Emitter.js.map

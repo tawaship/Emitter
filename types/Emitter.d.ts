@@ -18,6 +18,11 @@ export default class Emitter {
      */
     private _events;
     /**
+     * @property {string[]}
+     * @readonly
+     */
+    get eventNames(): string[];
+    /**
      * Register event.
      *
      * @private

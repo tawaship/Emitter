@@ -17,7 +17,6 @@ type EmitterEvents = IEmitterEvent[];
  * @typedef EmitterEvents {Emitter~IEmitterEvent[]}
  * @memberof Emitter~
  */
- 
 
 /**
  * @class
@@ -28,6 +27,14 @@ export default class Emitter {
 	 * @private
 	 */
 	private _events: { [type: string]: EmitterEvents } = {};
+	
+	/**
+	 * @property {string[]}
+	 * @readonly
+	 */
+	get eventNames(): string[] {
+		return Object.keys(this._events);
+	}
 	
 	/**
 	 * Register event.
@@ -175,7 +182,7 @@ export default class Emitter {
 	 */
 	clear(type: string = ''): Emitter {
 		if (this._events[type]) {
-			this._events[type] = [];
+			delete(this._events[type]);
 		} else {
 			this._events = {};
 		}
