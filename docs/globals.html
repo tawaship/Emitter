@@ -63,122 +63,93 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<div class="tsd-panel tsd-typography">
-				<a href="#tawashipemitter" id="tawashipemitter" style="color: inherit; text-decoration: none;">
-					<h1>@tawaship/emitter</h1>
-				</a>
-				<p><strong>A little useful emitter.</strong></p>
-				<p><a href="https://travis-ci.org/tawaship/Emitter"><img src="https://travis-ci.org/tawaship/Emitter.svg?branch=master" alt="Build Status"></a>
-				<a href="LICENSE"><img src="http://img.shields.io/badge/license-MIT-blue.svg?style=flat" alt="MIT License"></a></p>
-				<hr>
-				<a href="#how-to-install" id="how-to-install" style="color: inherit; text-decoration: none;">
-					<h2>How to install</h2>
-				</a>
-				<pre><code class="language-sh"><span class="hljs-built_in">cd</span> /path/to
-npm install --save @tawaship/emitter</code></pre>
-				<a href="#for-npm" id="for-npm" style="color: inherit; text-decoration: none;">
-					<h3>for NPM</h3>
-				</a>
-				<pre><code class="language-javascript"><span class="hljs-keyword">import</span> Emitter <span class="hljs-keyword">from</span> <span class="hljs-string">'@tawaship/emitter'</span>;</code></pre>
-				<p>or</p>
-				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> Emitter = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@tawaship/emitter'</span>);</code></pre>
-				<a href="#for-browser" id="for-browser" style="color: inherit; text-decoration: none;">
-					<h3>for Browser</h3>
-				</a>
-				<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"/path/to/dist/Emitter.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
-				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
-					<h2>Usage</h2>
-				</a>
-				<a href="#basic" id="basic" style="color: inherit; text-decoration: none;">
-					<h3>Basic</h3>
-				</a>
-				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> f = <span class="hljs-function"><span class="hljs-params">a</span> =&gt;</span> {
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'ev'</span>, a);
-};
-
-<span class="hljs-keyword">new</span> Emitter()
-    .on(<span class="hljs-string">'ev'</span>, f)
-    .emit(<span class="hljs-string">'ev'</span>, <span class="hljs-number">1</span>) <span class="hljs-comment">// ev 1</span>
-    .off(<span class="hljs-string">'ev'</span>, f)
-    .emit(<span class="hljs-string">'ev'</span>, <span class="hljs-number">1</span>) <span class="hljs-comment">// (nothing)</span></code></pre>
-				<a href="#basic-once" id="basic-once" style="color: inherit; text-decoration: none;">
-					<h3>Basic once</h3>
-				</a>
-				<pre><code class="language-javascript"><span class="hljs-keyword">new</span> Emitter()
-    .once(<span class="hljs-string">'ev'</span>, a =&gt; {
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'ev'</span>, a);
-    })
-    .emit(<span class="hljs-string">'ev'</span>, <span class="hljs-number">1</span>) <span class="hljs-comment">// ev 1</span>
-    .emit(<span class="hljs-string">'ev'</span>, <span class="hljs-number">1</span>) <span class="hljs-comment">// (nothing)</span></code></pre>
-				<a href="#repeatable-arguments" id="repeatable-arguments" style="color: inherit; text-decoration: none;">
-					<h3>Repeatable arguments</h3>
-				</a>
-				<pre><code class="language-javascript"><span class="hljs-keyword">new</span> Emitter()
-    .on(<span class="hljs-string">'ev'</span>, (...args) =&gt; {
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'ev'</span>, ...args);
-    })
-    .emit(<span class="hljs-string">'ev'</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>) <span class="hljs-comment">// ev 1 2 3 4 5 6 7</span></code></pre>
-				<a href="#specify-the-context" id="specify-the-context" style="color: inherit; text-decoration: none;">
-					<h3>Specify the context</h3>
-				</a>
-				<pre><code class="language-javascript"><span class="hljs-keyword">new</span> Emitter()
-    .on(<span class="hljs-string">'ev'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">a</span>) </span>{
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>, a);
-    })
-    .cemit(<span class="hljs-string">'ev'</span>, {<span class="hljs-attr">hoge</span>: <span class="hljs-number">1</span>}, <span class="hljs-number">2</span>) <span class="hljs-comment">// {hoge: 1} 2</span></code></pre>
-				<p>However, using the arrow function invalidates the context specification.</p>
-				<pre><code class="language-javascript"><span class="hljs-comment">// on window</span>
-<span class="hljs-keyword">new</span> Emitter()
-    .on(<span class="hljs-string">'ev'</span>, a =&gt; {
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>, a);
-    })
-    .cemit(<span class="hljs-string">'ev'</span>, {<span class="hljs-attr">hoge</span>: <span class="hljs-number">1</span>}, <span class="hljs-number">2</span>) <span class="hljs-comment">// Window 2</span></code></pre>
-				<a href="#events-delete-in-groups" id="events-delete-in-groups" style="color: inherit; text-decoration: none;">
-					<h3>Events delete in groups</h3>
-				</a>
-				<pre><code class="language-javascript"><span class="hljs-keyword">new</span> Emitter()
-    .on(<span class="hljs-string">'ev'</span>, a =&gt; {
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'ev'</span>, a);
-    })
-    .on(<span class="hljs-string">'ev'</span>, a =&gt; {
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'ev'</span>, a);
-    })
-    .on(<span class="hljs-string">'ev2'</span>, a =&gt; {
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'ev'</span>, a);
-    })
-    .on(<span class="hljs-string">'ev2'</span>, a =&gt; {
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'ev'</span>, a);
-    })
-    .clear(<span class="hljs-string">'ev'</span>)
-    .emit(<span class="hljs-string">'ev'</span>, <span class="hljs-number">1</span>) <span class="hljs-comment">// (nothing)</span>
-    .emit(<span class="hljs-string">'ev2'</span>, <span class="hljs-number">1</span>) <span class="hljs-comment">// ev 1, ev 1</span></code></pre>
-				<a href="#all-events-delete-at-once" id="all-events-delete-at-once" style="color: inherit; text-decoration: none;">
-					<h3>All events delete at once</h3>
-				</a>
-				<pre><code class="language-javascript"><span class="hljs-keyword">new</span> Emitter()
-    .on(<span class="hljs-string">'ev'</span>, a =&gt; {
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'ev'</span>, a);
-    })
-    .on(<span class="hljs-string">'ev2'</span>, a =&gt; {
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'ev'</span>, a);
-    })
-    .on(<span class="hljs-string">'ev3'</span>, a =&gt; {
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'ev'</span>, a);
-    })
-    .on(<span class="hljs-string">'ev4'</span>, a =&gt; {
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'ev'</span>, a);
-    })
-    .clear()
-    .emit(<span class="hljs-string">'ev'</span>, <span class="hljs-number">1</span>) <span class="hljs-comment">// (nothing)</span>
-    .emit(<span class="hljs-string">'ev2'</span>, <span class="hljs-number">1</span>) <span class="hljs-comment">// (nothing)</span>
-    .emit(<span class="hljs-string">'ev3'</span>, <span class="hljs-number">1</span>) <span class="hljs-comment">// (nothing)</span>
-    .emit(<span class="hljs-string">'ev4'</span>, <span class="hljs-number">1</span>) <span class="hljs-comment">// (nothing)</span></code></pre>
-			</div>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section tsd-is-external">
+							<h3>Classes</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-class tsd-is-external"><a href="classes/emitter.html" class="tsd-kind-icon">Emitter</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-private tsd-is-private-protected tsd-is-external">
+							<h3>Interfaces</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-interface tsd-is-private tsd-is-external"><a href="interfaces/iemitterevent.html" class="tsd-kind-icon">IEmitter<wbr>Event</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-private tsd-is-private-protected tsd-is-external">
+							<h3>Type aliases</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-type-alias tsd-is-private tsd-is-external"><a href="globals.html#emittercallback" class="tsd-kind-icon">Emitter<wbr>Callback</a></li>
+								<li class="tsd-kind-type-alias tsd-is-private tsd-is-external"><a href="globals.html#events" class="tsd-kind-icon">Events</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-private tsd-is-private-protected tsd-is-external">
+				<h2>Type aliases</h2>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-is-private tsd-is-external">
+					<a name="emittercallback" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> Emitter<wbr>Callback</h3>
+					<div class="tsd-signature tsd-kind-icon">Emitter<wbr>Callback<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/tawaship/Emitter/blob/c3ab2f4/src/Emitter.ts#L18">Emitter.ts:18</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+					</div>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-siganture">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-is-private tsd-is-external">
+					<a name="events" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> Events</h3>
+					<div class="tsd-signature tsd-kind-icon">Events<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{}</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/tawaship/Emitter/blob/c3ab2f4/src/Emitter.ts#L13">Emitter.ts:13</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+					</div>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-index-signature">
+								<h5><span class="tsd-signature-symbol">[</span>type: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><a href="interfaces/iemitterevent.html" class="tsd-signature-type">IEmitterEvent</a><span class="tsd-signature-symbol">[]</span></h5>
+							</li>
+						</ul>
+					</div>
+				</section>
+			</section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
 				<ul>
-					<li class="globals  ">
+					<li class="globals current ">
 						<a href="globals.html"><em>Globals</em></a>
 					</li>
 				</ul>

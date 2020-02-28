@@ -108,6 +108,7 @@ var Emitter = function() {
         return this;
     };
     Object.defineProperties(Emitter.prototype, prototypeAccessors);
+    (new Emitter).clear();
     return Emitter;
 }();
 //# sourceMappingURL=Emitter.js.map

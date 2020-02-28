@@ -6,5 +6,10 @@
     "declaration": true,
     "outDir": "./types"
   },
+  "typedocOptions": {
+    "mode": "file",
+    "out": "docs",
+    "moduleResolution": "node"
+  },
   "exclude": ["node_modules", "src/**/*.d.ts"]
 }

@@ -1,36 +1,27 @@
 
+/**
+ * @private
+ */
 interface IEmitterEvent {
 	func: Function,
 	once: boolean
 }
 
-type EmitterEvents = IEmitterEvent[];
+/**
+ * @private
+ */
+type Events = { [type: string]: IEmitterEvent[] };
 
 /**
- * @interface IEmitterEvent
- * @memberof Emitter~
- * @property func {Function}
- * @property once {boolean}
+ * @private
  */
+type EmitterCallback = (...args: any[]) => void;
 
-/**
- * @typedef EmitterEvents {Emitter~IEmitterEvent[]}
- * @memberof Emitter~
- */
-
-/**
- * @class
- */
 export default class Emitter {
-	/**
-	 * @member {Object<string, Emitter~EmitterEvents>}
-	 * @private
-	 */
-	private _events: { [type: string]: EmitterEvents } = {};
+	private _events: Events = {};
 	
 	/**
-	 * @member {string[]}
-	 * @readonly
+	 * Registered event names.
 	 * @since 1.1.1
 	 */
 	get eventNames(): string[] {
@@ -40,18 +31,17 @@ export default class Emitter {
 	/**
 	 * Register event.
 	 * 
-	 * @private
-	 * @param {string} type Event type.
-	 * @param {Function} func Callback when the event fires.
-	 * @param {boolean} once Whether one-time event.
-	 * @return {Emitter} Returns itself for the method chaining.
+	 * @param type Event type.
+	 * @param func Callback when the event fires.
+	 * @param once Whether one-time event.
+	 * @return Returns itself for the method chaining.
 	 */
-	private _on(type: string, func: Function, once: boolean): Emitter {
+	private _on(type: string, func: EmitterCallback, once: boolean): Emitter {
 		if (!type || !func) {
 			return this;
 		}
 		
-		const events: EmitterEvents = this._events[type] = this._events[type] || [];
+		const events: IEmitterEvent[] = this._events[type] = this._events[type] || [];
 		
 		for (let i: number = 0; i < events.length; i++) {
 			if (events[i].func === func) {
@@ -67,38 +57,38 @@ export default class Emitter {
 	/**
 	 * Register event.
 	 * 
-	 * @param {string} type Event type.
-	 * @param {Function} func Callback when the event fires.
-	 * @return {Emitter} Returns itself for the method chaining.
+	 * @param type Event type.
+	 * @param func Callback when the event fires.
+	 * @return Returns itself for the method chaining.
 	 */
-	on(type: string, func: Function): Emitter {
+	on(type: string, func: EmitterCallback): Emitter {
 		return this._on(type, func, false);
 	}
 	
 	/**
 	 * Register one-time event.
 	 * 
-	 * @param {string} type Event type.
-	 * @param {Function} func Callback when the event fires.
-	 * @return {Emitter} Returns itself for the method chaining.
+	 * @param type Event type.
+	 * @param func Callback when the event fires.
+	 * @return Returns itself for the method chaining.
 	 */
-	once(type: string, func: Function): Emitter {
+	once(type: string, func: EmitterCallback): Emitter {
 		return this._on(type, func, true);
 	}
 	
 	/**
 	 * Unregister event.
 	 * 
-	 * @param {string} type Event type.
-	 * @param {Function} func Registered callback.
-	 * @return {Emitter} Returns itself for the method chaining.
+	 * @param type Event type.
+	 * @param func Registered callback.
+	 * @return Returns itself for the method chaining.
 	 */
-	off(type: string, func: Function): Emitter {
+	off(type: string, func: EmitterCallback): Emitter {
 		if (!type || !func) {
 			return this;
 		}
 		
-		const events: EmitterEvents = this._events[type] || [];
+		const events: IEmitterEvent[] = this._events[type] || [];
 		
 		for (let i: number = 0; i < events.length; i++) {
 			if (events[i].func === func) {
@@ -113,17 +103,17 @@ export default class Emitter {
 	/**
 	 * Emit event.
 	 * 
-	 * @param {string} type Event type to emit.
-	 * @param {...any} [args] Argument(s) in callback.
-	 * @return {Emitter} Returns itself for the method chaining.
+	 * @param type Event type to emit.
+	 * @param args Argument(s) in callback.
+	 * @return Returns itself for the method chaining.
 	 */
 	emit(type: string, ...args: any[]): Emitter {
 		if (!type) {
 			return this;
 		}
 		
-		const events: EmitterEvents = this._events[type] || [];
-		const use: EmitterEvents = [];
+		const events: IEmitterEvent[] = this._events[type] || [];
+		const use: IEmitterEvent[] = [];
 		
 		for (let i: number = events.length - 1; i >= 0; i--) {
 			const ev: IEmitterEvent = events[i];
@@ -145,18 +135,18 @@ export default class Emitter {
 	/**
 	 * Emit event with specifying a context.
 	 * 
-	 * @param {string} type Event type to emit.
-	 * @param {any} context 'this' context in callback.
-	 * @param {...any} [args] Argument(s) in callback.
-	 * @return {Emitter} Returns itself for the method chaining.
+	 * @param type Event type to emit.
+	 * @param context 'this' context in callback.
+	 * @param args Argument(s) in callback.
+	 * @return Returns itself for the method chaining.
 	 */
 	cemit(type: string, context: any, ...args: any[]): Emitter {
 		if (!type || context == null) {
 			return this;
 		}
 		
-		const events: EmitterEvents = this._events[type] || [];
-		const use: EmitterEvents = [];
+		const events: IEmitterEvent[] = this._events[type] || [];
+		const use: IEmitterEvent[] = [];
 		
 		for (let i: number = events.length - 1; i >= 0; i--) {
 			const ev: IEmitterEvent = events[i];
@@ -178,10 +168,10 @@ export default class Emitter {
 	/**
 	 * Remove events grouped event type.
 	 * 
-	 * @param {string} [type=''] Event type to remove.<br>If it is empty, removes all events.
-	 * @return {Emitter} Returns itself for the method chaining.
+	 * @param type Event type to remove.<br>If it is empty, removes all events.
+	 * @return Returns itself for the method chaining.
 	 */
-	clear(type: string = ''): Emitter {
+	clear(type: string=''): Emitter {
 		if (this._events[type]) {
 			delete(this._events[type]);
 		} else {

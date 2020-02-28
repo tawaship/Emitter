@@ -22,7 +22,7 @@ export default (async () => {
 	
 	return [
 		{
-			input: 'src/Emitter.ts',
+			input: 'src/index.ts',
 			output: [
 				{
 					banner,
@@ -37,6 +37,9 @@ export default (async () => {
 					sourcemap: true
 				}
 			],
+			watch: {
+				clearScreen: false
+			},
 			plugins: [
 				nodeResolve(),
 				commonjs(),
@@ -44,7 +47,7 @@ export default (async () => {
 			]
 		},
 		{
-			input: 'src/Emitter.ts',
+			input: 'src/index.ts',
 			output: [
 				{
 					banner,
@@ -73,7 +76,7 @@ export default (async () => {
 			]
 		},
 		{
-			input: 'src/Emitter.ts',
+			input: 'src/index.ts',
 			output: [
 				{
 					banner,

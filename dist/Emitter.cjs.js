@@ -7,30 +7,12 @@
 
 'use strict';
 
-/**
- * @interface IEmitterEvent
- * @memberof Emitter~
- * @property func {Function}
- * @property once {boolean}
- */
-/**
- * @typedef EmitterEvents {Emitter~IEmitterEvent[]}
- * @memberof Emitter~
- */
-/**
- * @class
- */
 class Emitter {
     constructor() {
-        /**
-         * @member {Object<string, Emitter~EmitterEvents>}
-         * @private
-         */
         this._events = {};
     }
     /**
-     * @member {string[]}
-     * @readonly
+     * Registered event names.
      * @since 1.1.1
      */
     get eventNames() {
@@ -39,11 +21,10 @@ class Emitter {
     /**
      * Register event.
      *
-     * @private
-     * @param {string} type Event type.
-     * @param {Function} func Callback when the event fires.
-     * @param {boolean} once Whether one-time event.
-     * @return {Emitter} Returns itself for the method chaining.
+     * @param type Event type.
+     * @param func Callback when the event fires.
+     * @param once Whether one-time event.
+     * @return Returns itself for the method chaining.
      */
     _on(type, func, once) {
         if (!type || !func) {
@@ -61,9 +42,9 @@ class Emitter {
     /**
      * Register event.
      *
-     * @param {string} type Event type.
-     * @param {Function} func Callback when the event fires.
-     * @return {Emitter} Returns itself for the method chaining.
+     * @param type Event type.
+     * @param func Callback when the event fires.
+     * @return Returns itself for the method chaining.
      */
     on(type, func) {
         return this._on(type, func, false);
@@ -71,9 +52,9 @@ class Emitter {
     /**
      * Register one-time event.
      *
-     * @param {string} type Event type.
-     * @param {Function} func Callback when the event fires.
-     * @return {Emitter} Returns itself for the method chaining.
+     * @param type Event type.
+     * @param func Callback when the event fires.
+     * @return Returns itself for the method chaining.
      */
     once(type, func) {
         return this._on(type, func, true);
@@ -81,9 +62,9 @@ class Emitter {
     /**
      * Unregister event.
      *
-     * @param {string} type Event type.
-     * @param {Function} func Registered callback.
-     * @return {Emitter} Returns itself for the method chaining.
+     * @param type Event type.
+     * @param func Registered callback.
+     * @return Returns itself for the method chaining.
      */
     off(type, func) {
         if (!type || !func) {
@@ -101,9 +82,9 @@ class Emitter {
     /**
      * Emit event.
      *
-     * @param {string} type Event type to emit.
-     * @param {...any} [args] Argument(s) in callback.
-     * @return {Emitter} Returns itself for the method chaining.
+     * @param type Event type to emit.
+     * @param args Argument(s) in callback.
+     * @return Returns itself for the method chaining.
      */
     emit(type, ...args) {
         if (!type) {
@@ -126,10 +107,10 @@ class Emitter {
     /**
      * Emit event with specifying a context.
      *
-     * @param {string} type Event type to emit.
-     * @param {any} context 'this' context in callback.
-     * @param {...any} [args] Argument(s) in callback.
-     * @return {Emitter} Returns itself for the method chaining.
+     * @param type Event type to emit.
+     * @param context 'this' context in callback.
+     * @param args Argument(s) in callback.
+     * @return Returns itself for the method chaining.
      */
     cemit(type, context, ...args) {
         if (!type || context == null) {
@@ -152,8 +133,8 @@ class Emitter {
     /**
      * Remove events grouped event type.
      *
-     * @param {string} [type=''] Event type to remove.<br>If it is empty, removes all events.
-     * @return {Emitter} Returns itself for the method chaining.
+     * @param type Event type to remove.<br>If it is empty, removes all events.
+     * @return Returns itself for the method chaining.
      */
     clear(type = '') {
         if (this._events[type]) {
@@ -165,6 +146,8 @@ class Emitter {
         return this;
     }
 }
+
+new Emitter().clear();
 
 module.exports = Emitter;
 //# sourceMappingURL=Emitter.cjs.js.map
