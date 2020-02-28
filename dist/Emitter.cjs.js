@@ -1,5 +1,5 @@
 /*!
- * @tawaship/emitter - v1.1.3
+ * @tawaship/emitter - v1.1.4
  * 
  * @author tawaship (makazu.mori@gmail.com)
  * @license MIT
@@ -146,8 +146,6 @@ class Emitter {
         return this;
     }
 }
-
-new Emitter().clear();
 
 module.exports = Emitter;
 //# sourceMappingURL=Emitter.cjs.js.map
