@@ -8,7 +8,7 @@
   "scripts": {
     "rollup": "rollup -c",
     "d": "tsc --target ES5 --emitDeclarationOnly",
-    "docs": "typedoc src/module.ts",
+    "docs": "typedoc src/",
     "test": "mocha test/index.js",
     "watch": "run-p \"rollup -- -w\" \"test -- -w --watch-files **/Emitter.cjs.js\"",
     "build": "ENV PROD=1 npm run rollup && npm test && npm run docs && npm run d && echo done."
