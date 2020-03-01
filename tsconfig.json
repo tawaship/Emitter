@@ -9,7 +9,8 @@
   "typedocOptions": {
     "mode": "file",
     "out": "docs",
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "gitRevision": "master"
   },
   "exclude": ["node_modules", "src/**/*.d.ts"]
 }

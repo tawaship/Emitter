@@ -1,4 +1,3 @@
-
 /**
  * @private
  */
@@ -12,12 +11,9 @@ interface IEmitterEvent {
  */
 type Events = { [type: string]: IEmitterEvent[] };
 
-/**
- * @private
- */
-type EmitterCallback = (...args: any[]) => void;
+export type EmitterCallback = (...args: any[]) => void;
 
-export default class Emitter {
+export class Emitter {
 	private _events: Events = {};
 	
 	/**

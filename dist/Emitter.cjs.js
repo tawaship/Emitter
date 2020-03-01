@@ -7,6 +7,8 @@
 
 'use strict';
 
+Object.defineProperty(exports, '__esModule', { value: true });
+
 class Emitter {
     constructor() {
         this._events = {};
@@ -147,5 +149,5 @@ class Emitter {
     }
 }
 
-module.exports = Emitter;
+exports.Emitter = Emitter;
 //# sourceMappingURL=Emitter.cjs.js.map

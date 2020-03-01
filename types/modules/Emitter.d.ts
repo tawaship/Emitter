@@ -1,8 +1,5 @@
-/**
- * @private
- */
-declare type EmitterCallback = (...args: any[]) => void;
-export default class Emitter {
+export declare type EmitterCallback = (...args: any[]) => void;
+export declare class Emitter {
     private _events;
     /**
      * Registered event names.
@@ -67,4 +64,3 @@ export default class Emitter {
      */
     clear(type?: string): Emitter;
 }
-export {};

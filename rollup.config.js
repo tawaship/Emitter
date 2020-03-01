@@ -22,7 +22,7 @@ export default (async () => {
 	
 	return [
 		{
-			input: 'src/index.ts',
+			input: 'src/module.ts',
 			output: [
 				{
 					banner,
@@ -47,7 +47,7 @@ export default (async () => {
 			]
 		},
 		{
-			input: 'src/index.ts',
+			input: 'src/browser.ts',
 			output: [
 				{
 					banner,
@@ -76,7 +76,7 @@ export default (async () => {
 			]
 		},
 		{
-			input: 'src/index.ts',
+			input: 'src/browser.ts',
 			output: [
 				{
 					banner,

@@ -18,13 +18,13 @@ npm install --save @tawaship/emitter
 ### for NPM
 
 ```javascript
-import Emitter from '@tawaship/emitter';
+import { Emitter } from '@tawaship/emitter';
 ```
 
 or
 
 ```javascript
-const Emitter = require('@tawaship/emitter');
+const { Emitter } = require('@tawaship/emitter');
 ```
 
 ### for Browser

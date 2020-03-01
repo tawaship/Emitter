@@ -145,5 +145,5 @@ class Emitter {
     }
 }
 
-export default Emitter;
+export { Emitter };
 //# sourceMappingURL=Emitter.esm.js.map

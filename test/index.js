@@ -1,5 +1,5 @@
 const assert = require('assert');
-const Emitter = require('../dist/Emitter.cjs.js');
+const { Emitter } = require('../dist/Emitter.cjs.js');
 
 describe('Emitter', () => {
 	it('basic', () => {
