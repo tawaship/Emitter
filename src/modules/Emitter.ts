@@ -2,7 +2,7 @@
  * @private
  */
 interface IEmitterEvent {
-	func: Function,
+	func: EmitterCallback,
 	once: boolean
 }
 
@@ -11,6 +11,9 @@ interface IEmitterEvent {
  */
 type Events = { [type: string]: IEmitterEvent[] };
 
+/**
+ * @since 2.0.0
+ */
 export type EmitterCallback = (...args: any[]) => void;
 
 export class Emitter {
@@ -18,6 +21,7 @@ export class Emitter {
 	
 	/**
 	 * Registered event names.
+	 * 
 	 * @since 1.1.1
 	 */
 	get eventNames(): string[] {
