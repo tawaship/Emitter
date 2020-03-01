@@ -1,5 +1,5 @@
 /*!
- * @tawaship/emitter - v1.1.4
+ * @tawaship/emitter - v2.0.0
  * 
  * @author tawaship (makazu.mori@gmail.com)
  * @license MIT
