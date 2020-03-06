@@ -10,35 +10,37 @@
 
 ## How to install
 
-### from NPM
+1. on you npm project
 
 ```sh
 npm install --save @tawaship/emitter
 ```
 
-### from github
-
-```sh
-git clone https://github.com/tawaship/Emitter
-cd Emitter
-npm run build
-```
-
-## How to import
-
-### in NPM
+2. on your code
 
 ```javascript
 import { Emitter } from '@tawaship/emitter';
-```
 
-or
+// or
 
-```javascript
 const { Emitter } = require('@tawaship/emitter');
 ```
 
-### in browser
+## How to build
+
+```sh
+git clone https://github.com/tawaship/Emitter
+
+cd Emitter
+
+npm install
+
+npm run build
+```
+
+## How to load on browser
+
+After [install](#how-to-install) or [build](#how-to-build)
 
 ```html
 <script src="/path/to/dist/Emitter.min.js"></script>
