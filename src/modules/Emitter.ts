@@ -36,7 +36,7 @@ export class Emitter {
 	 * @param once Whether one-time event.
 	 * @return Returns itself for the method chaining.
 	 */
-	private _on(type: string, func: EmitterCallback, once: boolean): Emitter {
+	private _on(type: string, func: EmitterCallback, once: boolean): this {
 		if (!type || !func) {
 			return this;
 		}
@@ -61,7 +61,7 @@ export class Emitter {
 	 * @param func Callback when the event fires.
 	 * @return Returns itself for the method chaining.
 	 */
-	on(type: string, func: EmitterCallback): Emitter {
+	on(type: string, func: EmitterCallback): this {
 		return this._on(type, func, false);
 	}
 	
@@ -72,7 +72,7 @@ export class Emitter {
 	 * @param func Callback when the event fires.
 	 * @return Returns itself for the method chaining.
 	 */
-	once(type: string, func: EmitterCallback): Emitter {
+	once(type: string, func: EmitterCallback): this {
 		return this._on(type, func, true);
 	}
 	
@@ -83,7 +83,7 @@ export class Emitter {
 	 * @param func Registered callback.
 	 * @return Returns itself for the method chaining.
 	 */
-	off(type: string, func: EmitterCallback): Emitter {
+	off(type: string, func: EmitterCallback): this {
 		if (!type || !func) {
 			return this;
 		}
@@ -107,7 +107,7 @@ export class Emitter {
 	 * @param args Argument(s) in callback.
 	 * @return Returns itself for the method chaining.
 	 */
-	emit(type: string, ...args: any[]): Emitter {
+	emit(type: string, ...args: any[]): this {
 		if (!type) {
 			return this;
 		}
@@ -140,7 +140,7 @@ export class Emitter {
 	 * @param args Argument(s) in callback.
 	 * @return Returns itself for the method chaining.
 	 */
-	cemit(type: string, context: any, ...args: any[]): Emitter {
+	cemit(type: string, context: any, ...args: any[]): this {
 		if (!type || context == null) {
 			return this;
 		}
@@ -171,7 +171,7 @@ export class Emitter {
 	 * @param type Event type to remove.<br>If it is empty, removes all events.
 	 * @return Returns itself for the method chaining.
 	 */
-	clear(type: string=''): Emitter {
+	clear(type: string=''): this {
 		if (this._events[type]) {
 			delete(this._events[type]);
 		} else {

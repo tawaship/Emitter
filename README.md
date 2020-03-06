@@ -10,12 +10,23 @@
 
 ## How to install
 
+### from NPM
+
 ```sh
-cd /path/to
 npm install --save @tawaship/emitter
 ```
 
-### for NPM
+### from github
+
+```sh
+git clone https://github.com/tawaship/Emitter
+cd Emitter
+npm run build
+```
+
+## How to import
+
+### in NPM
 
 ```javascript
 import { Emitter } from '@tawaship/emitter';
@@ -27,7 +38,7 @@ or
 const { Emitter } = require('@tawaship/emitter');
 ```
 
-### for Browser
+### in browser
 
 ```html
 <script src="/path/to/dist/Emitter.min.js"></script>
