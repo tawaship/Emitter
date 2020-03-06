@@ -172,7 +172,7 @@ export class Emitter {
 	 * @return Returns itself for the method chaining.
 	 */
 	clear(type: string=''): this {
-		if (this._events[type]) {
+		if (type) {
 			delete(this._events[type]);
 		} else {
 			this._events = {};

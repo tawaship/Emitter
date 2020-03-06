@@ -153,7 +153,7 @@ describe('Emitter', () => {
 			.on('ev4', a => {
 				total += a;
 			})
-			.clear('ev4');
+			.clear('ev');
 		
 		const eventNames = emitter.eventNames;
 		for (let i = 0; i < eventNames.length; i++) {
