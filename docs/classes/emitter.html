@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Emitter | @tawaship/emitter - v2.1.1</title>
+	<title>Emitter | @tawaship/emitter - v3.0.0</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="../index.html" class="title">@tawaship/emitter - v2.1.1</a>
+					<a href="../index.html" class="title">@tawaship/emitter - v3.0.0</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -110,12 +110,20 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="_events" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _events</h3>
-					<div class="tsd-signature tsd-kind-icon">_events<span class="tsd-signature-symbol">:</span> <a href="../globals.html#events" class="tsd-signature-type">Events</a></div>
+					<div class="tsd-signature tsd-kind-icon">_events<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{}</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/tawaship/Emitter/blob/master/src/modules/Emitter.ts#L20">modules/Emitter.ts:20</a></li>
+							<li>Defined in <a href="https://github.com/tawaship/Emitter/blob/master/src/modules/Emitter.ts#L15">modules/Emitter.ts:15</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-index-signature">
+								<h5><span class="tsd-signature-symbol">[</span>type: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><a href="../interfaces/iemitterevent.html" class="tsd-signature-type">IEmitterEvent</a><span class="tsd-signature-symbol">[]</span></h5>
+							</li>
+						</ul>
+					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
@@ -130,7 +138,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tawaship/Emitter/blob/master/src/modules/Emitter.ts#L27">modules/Emitter.ts:27</a></li>
+									<li>Defined in <a href="https://github.com/tawaship/Emitter/blob/master/src/modules/Emitter.ts#L22">modules/Emitter.ts:22</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -154,13 +162,13 @@
 					<a name="_on" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _on</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">_on<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, func<span class="tsd-signature-symbol">: </span><a href="../globals.html#emittercallback" class="tsd-signature-type">EmitterCallback</a>, once<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+						<li class="tsd-signature tsd-kind-icon">_on<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, func<span class="tsd-signature-symbol">: </span><a href="../globals.html#temittercallback" class="tsd-signature-type">TEmitterCallback</a>, once<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tawaship/Emitter/blob/master/src/modules/Emitter.ts#L39">modules/Emitter.ts:39</a></li>
+									<li>Defined in <a href="https://github.com/tawaship/Emitter/blob/master/src/modules/Emitter.ts#L34">modules/Emitter.ts:34</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -177,7 +185,7 @@
 									</div>
 								</li>
 								<li>
-									<h5>func: <a href="../globals.html#emittercallback" class="tsd-signature-type">EmitterCallback</a></h5>
+									<h5>func: <a href="../globals.html#temittercallback" class="tsd-signature-type">TEmitterCallback</a></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Callback when the event fires.</p>
 									</div>
@@ -204,7 +212,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tawaship/Emitter/blob/master/src/modules/Emitter.ts#L143">modules/Emitter.ts:143</a></li>
+									<li>Defined in <a href="https://github.com/tawaship/Emitter/blob/master/src/modules/Emitter.ts#L138">modules/Emitter.ts:138</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -248,7 +256,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tawaship/Emitter/blob/master/src/modules/Emitter.ts#L174">modules/Emitter.ts:174</a></li>
+									<li>Defined in <a href="https://github.com/tawaship/Emitter/blob/master/src/modules/Emitter.ts#L169">modules/Emitter.ts:169</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -280,7 +288,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tawaship/Emitter/blob/master/src/modules/Emitter.ts#L110">modules/Emitter.ts:110</a></li>
+									<li>Defined in <a href="https://github.com/tawaship/Emitter/blob/master/src/modules/Emitter.ts#L105">modules/Emitter.ts:105</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -312,13 +320,13 @@
 					<a name="off" class="tsd-anchor"></a>
 					<h3>off</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">off<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, func<span class="tsd-signature-symbol">: </span><a href="../globals.html#emittercallback" class="tsd-signature-type">EmitterCallback</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+						<li class="tsd-signature tsd-kind-icon">off<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, func<span class="tsd-signature-symbol">: </span><a href="../globals.html#temittercallback" class="tsd-signature-type">TEmitterCallback</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tawaship/Emitter/blob/master/src/modules/Emitter.ts#L86">modules/Emitter.ts:86</a></li>
+									<li>Defined in <a href="https://github.com/tawaship/Emitter/blob/master/src/modules/Emitter.ts#L81">modules/Emitter.ts:81</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -335,7 +343,7 @@
 									</div>
 								</li>
 								<li>
-									<h5>func: <a href="../globals.html#emittercallback" class="tsd-signature-type">EmitterCallback</a></h5>
+									<h5>func: <a href="../globals.html#temittercallback" class="tsd-signature-type">TEmitterCallback</a></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Registered callback.</p>
 									</div>
@@ -350,13 +358,13 @@
 					<a name="on" class="tsd-anchor"></a>
 					<h3>on</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, func<span class="tsd-signature-symbol">: </span><a href="../globals.html#emittercallback" class="tsd-signature-type">EmitterCallback</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, func<span class="tsd-signature-symbol">: </span><a href="../globals.html#temittercallback" class="tsd-signature-type">TEmitterCallback</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tawaship/Emitter/blob/master/src/modules/Emitter.ts#L64">modules/Emitter.ts:64</a></li>
+									<li>Defined in <a href="https://github.com/tawaship/Emitter/blob/master/src/modules/Emitter.ts#L59">modules/Emitter.ts:59</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -373,7 +381,7 @@
 									</div>
 								</li>
 								<li>
-									<h5>func: <a href="../globals.html#emittercallback" class="tsd-signature-type">EmitterCallback</a></h5>
+									<h5>func: <a href="../globals.html#temittercallback" class="tsd-signature-type">TEmitterCallback</a></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Callback when the event fires.</p>
 									</div>
@@ -388,13 +396,13 @@
 					<a name="once" class="tsd-anchor"></a>
 					<h3>once</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">once<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, func<span class="tsd-signature-symbol">: </span><a href="../globals.html#emittercallback" class="tsd-signature-type">EmitterCallback</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+						<li class="tsd-signature tsd-kind-icon">once<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, func<span class="tsd-signature-symbol">: </span><a href="../globals.html#temittercallback" class="tsd-signature-type">TEmitterCallback</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tawaship/Emitter/blob/master/src/modules/Emitter.ts#L75">modules/Emitter.ts:75</a></li>
+									<li>Defined in <a href="https://github.com/tawaship/Emitter/blob/master/src/modules/Emitter.ts#L70">modules/Emitter.ts:70</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -411,7 +419,7 @@
 									</div>
 								</li>
 								<li>
-									<h5>func: <a href="../globals.html#emittercallback" class="tsd-signature-type">EmitterCallback</a></h5>
+									<h5>func: <a href="../globals.html#temittercallback" class="tsd-signature-type">TEmitterCallback</a></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Callback when the event fires.</p>
 									</div>
@@ -474,10 +482,7 @@
 						<a href="../interfaces/iemitterevent.html" class="tsd-kind-icon">IEmitter<wbr>Event</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
-						<a href="../globals.html#emittercallback" class="tsd-kind-icon">Emitter<wbr>Callback</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-is-private">
-						<a href="../globals.html#events" class="tsd-kind-icon">Events</a>
+						<a href="../globals.html#temittercallback" class="tsd-kind-icon">TEmitter<wbr>Callback</a>
 					</li>
 				</ul>
 			</nav>

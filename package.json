@@ -1,6 +1,6 @@
 {
   "name": "@tawaship/emitter",
-  "version": "2.1.1",
+  "version": "3.0.0",
   "description": "A little useful emitter.",
   "main": "dist/Emitter.cjs.js",
   "module": "dist/Emitter.esm.js",

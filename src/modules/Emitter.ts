@@ -2,22 +2,17 @@
  * @private
  */
 interface IEmitterEvent {
-	func: EmitterCallback,
+	func: TEmitterCallback,
 	once: boolean
 }
 
 /**
- * @private
- */
-type Events = { [type: string]: IEmitterEvent[] };
-
-/**
  * @since 2.0.0
  */
-export type EmitterCallback = (...args: any[]) => void;
+export type TEmitterCallback = (...args: any[]) => void;
 
 export class Emitter {
-	private _events: Events = {};
+	private _events: { [type: string]: IEmitterEvent[] } = {};
 	
 	/**
 	 * Registered event names.
@@ -36,7 +31,7 @@ export class Emitter {
 	 * @param once Whether one-time event.
 	 * @return Returns itself for the method chaining.
 	 */
-	private _on(type: string, func: EmitterCallback, once: boolean): this {
+	private _on(type: string, func: TEmitterCallback, once: boolean): this {
 		if (!type || !func) {
 			return this;
 		}
@@ -61,7 +56,7 @@ export class Emitter {
 	 * @param func Callback when the event fires.
 	 * @return Returns itself for the method chaining.
 	 */
-	on(type: string, func: EmitterCallback): this {
+	on(type: string, func: TEmitterCallback): this {
 		return this._on(type, func, false);
 	}
 	
@@ -72,7 +67,7 @@ export class Emitter {
 	 * @param func Callback when the event fires.
 	 * @return Returns itself for the method chaining.
 	 */
-	once(type: string, func: EmitterCallback): this {
+	once(type: string, func: TEmitterCallback): this {
 		return this._on(type, func, true);
 	}
 	
@@ -83,7 +78,7 @@ export class Emitter {
 	 * @param func Registered callback.
 	 * @return Returns itself for the method chaining.
 	 */
-	off(type: string, func: EmitterCallback): this {
+	off(type: string, func: TEmitterCallback): this {
 		if (!type || !func) {
 			return this;
 		}
