@@ -47,9 +47,9 @@ describe('Emitter', () => {
 		const emitter = new Emitter();
 		
 		emitter.on('ev', function() {
-				assert.equal(this, emitter);
-			})
-			.emit('ev');
+			assert.equal(this, emitter);
+		})
+		.emit('ev');
 	});
 	
 	it('context in arrow function', () => {
@@ -57,9 +57,19 @@ describe('Emitter', () => {
 		const self = this;
 		
 		emitter.on('ev', () => {
-				assert.equal(this, self);
-			})
-			.emit('ev');
+			assert.equal(this, self);
+		})
+		.emit('ev');
+	});
+	
+	it('specify context in function', () => {
+		const emitter = new Emitter();
+		const context = { hoge: 1 };
+		
+		emitter.on('ev', function() {
+			assert.equal(this, context);
+		})
+		.cemit(context, 'ev');
 	});
 	
 	it('clear group', () => {
@@ -128,11 +138,32 @@ describe('Emitter', () => {
 			})
 			.clear('ev4');
 		
-		const eventNames = emitter.eventNames;
-		for (let i = 0; i < eventNames.length; i++) {
-			emitter.emit(eventNames[i], 1);
-		}
+		emitter.emitAll(1);
 		
 		assert.equal(total, 3);
+	});
+	
+	it('emit all events with context', () => {
+		let total = 0;
+		const context = { hoge: 1 };
+		
+		const emitter = new Emitter()
+			.on('ev', function(a) {
+				total += this.hoge + a;
+			})
+			.on('ev2', function(a) {
+				total += this.hoge * 2 + a;
+			})
+			.on('ev3', function(a) {
+				total += this.hoge * 3 + a;
+			})
+			.on('ev4', function(a) {
+				total += this.hoge * 4 + a;
+			})
+			.clear('ev4');
+		
+		emitter.cemitAll(context, 2);
+		
+		assert.equal(total, 12);
 	});
 });
