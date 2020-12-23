@@ -3,3 +3,7 @@ node_js:
   - "node"
   - "9"
   - "8.5.0"
+
+branches:
+  only: 
+    - master
