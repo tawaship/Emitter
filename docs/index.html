@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>@tawaship/emitter - v3.1.0</title>
-	<meta name="description" content="">
+	<meta name="description" content="Documentation for @tawaship/emitter - v3.1.0">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="assets/css/main.css">
 </head>
@@ -13,7 +13,7 @@
 	<div class="tsd-page-toolbar">
 		<div class="container">
 			<div class="table-wrap">
-				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
 					<div class="field">
 						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
 						<input id="tsd-search-field" type="text" />
@@ -81,11 +81,11 @@
 				<ol start="2">
 					<li>on your code</li>
 				</ol>
-				<pre><code class="language-javascript"><span class="hljs-keyword">import</span> { Emitter } <span class="hljs-keyword">from</span> <span class="hljs-string">'@tawaship/emitter'</span>;
+				<pre><code class="language-javascript"><span class="hljs-keyword">import</span> { Emitter } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@tawaship/emitter&#x27;</span>;
 
 <span class="hljs-comment">// or</span>
 
-<span class="hljs-keyword">const</span> { Emitter } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@tawaship/emitter'</span>);</code></pre>
+<span class="hljs-keyword">const</span> { Emitter } = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;@tawaship/emitter&#x27;</span>);</code></pre>
 				<a href="#how-to-build" id="how-to-build" style="color: inherit; text-decoration: none;">
 					<h2>How to build</h2>
 				</a>
@@ -100,7 +100,7 @@ npm run build</code></pre>
 					<h2>How to load on browser</h2>
 				</a>
 				<p>After <a href="#how-to-install">install</a> or <a href="#how-to-build">build</a></p>
-				<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"/path/to/dist/Emitter.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
+				<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;/path/to/dist/Emitter.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
 				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
 					<h2>Usage</h2>
 				</a>
@@ -108,86 +108,86 @@ npm run build</code></pre>
 					<h3>Basic</h3>
 				</a>
 				<pre><code class="language-javascript"><span class="hljs-keyword">const</span> f = <span class="hljs-function"><span class="hljs-params">a</span> =&gt;</span> {
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'ev'</span>, a);
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;ev&#x27;</span>, a);
 };
 
 <span class="hljs-keyword">new</span> Emitter()
-    .on(<span class="hljs-string">'ev'</span>, f)
-    .emit(<span class="hljs-string">'ev'</span>, <span class="hljs-number">1</span>) <span class="hljs-comment">// ev 1</span>
-    .off(<span class="hljs-string">'ev'</span>, f)
-    .emit(<span class="hljs-string">'ev'</span>, <span class="hljs-number">1</span>) <span class="hljs-comment">// (nothing)</span></code></pre>
+    .on(<span class="hljs-string">&#x27;ev&#x27;</span>, f)
+    .emit(<span class="hljs-string">&#x27;ev&#x27;</span>, <span class="hljs-number">1</span>) <span class="hljs-comment">// ev 1</span>
+    .off(<span class="hljs-string">&#x27;ev&#x27;</span>, f)
+    .emit(<span class="hljs-string">&#x27;ev&#x27;</span>, <span class="hljs-number">1</span>) <span class="hljs-comment">// (nothing)</span></code></pre>
 				<a href="#basic-once" id="basic-once" style="color: inherit; text-decoration: none;">
 					<h3>Basic once</h3>
 				</a>
 				<pre><code class="language-javascript"><span class="hljs-keyword">new</span> Emitter()
-    .once(<span class="hljs-string">'ev'</span>, a =&gt; {
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'ev'</span>, a);
+    .once(<span class="hljs-string">&#x27;ev&#x27;</span>, <span class="hljs-function"><span class="hljs-params">a</span> =&gt;</span> {
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;ev&#x27;</span>, a);
     })
-    .emit(<span class="hljs-string">'ev'</span>, <span class="hljs-number">1</span>) <span class="hljs-comment">// ev 1</span>
-    .emit(<span class="hljs-string">'ev'</span>, <span class="hljs-number">1</span>) <span class="hljs-comment">// (nothing)</span></code></pre>
+    .emit(<span class="hljs-string">&#x27;ev&#x27;</span>, <span class="hljs-number">1</span>) <span class="hljs-comment">// ev 1</span>
+    .emit(<span class="hljs-string">&#x27;ev&#x27;</span>, <span class="hljs-number">1</span>) <span class="hljs-comment">// (nothing)</span></code></pre>
 				<a href="#repeatable-arguments" id="repeatable-arguments" style="color: inherit; text-decoration: none;">
 					<h3>Repeatable arguments</h3>
 				</a>
 				<pre><code class="language-javascript"><span class="hljs-keyword">new</span> Emitter()
-    .on(<span class="hljs-string">'ev'</span>, (...args) =&gt; {
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'ev'</span>, ...args);
+    .on(<span class="hljs-string">&#x27;ev&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">...args</span>) =&gt;</span> {
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;ev&#x27;</span>, ...args);
     })
-    .emit(<span class="hljs-string">'ev'</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>) <span class="hljs-comment">// ev 1 2 3 4 5 6 7</span></code></pre>
+    .emit(<span class="hljs-string">&#x27;ev&#x27;</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>) <span class="hljs-comment">// ev 1 2 3 4 5 6 7</span></code></pre>
 				<a href="#specify-the-context" id="specify-the-context" style="color: inherit; text-decoration: none;">
 					<h3>Specify the context</h3>
 				</a>
 				<pre><code class="language-javascript"><span class="hljs-keyword">new</span> Emitter()
-    .on(<span class="hljs-string">'ev'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">a</span>) </span>{
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>, a);
+    .on(<span class="hljs-string">&#x27;ev&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">a</span>) </span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">this</span>, a);
     })
-    .cemit(<span class="hljs-string">'ev'</span>, {<span class="hljs-attr">hoge</span>: <span class="hljs-number">1</span>}, <span class="hljs-number">2</span>) <span class="hljs-comment">// {hoge: 1} 2</span></code></pre>
+    .cemit(<span class="hljs-string">&#x27;ev&#x27;</span>, {<span class="hljs-attr">hoge</span>: <span class="hljs-number">1</span>}, <span class="hljs-number">2</span>) <span class="hljs-comment">// {hoge: 1} 2</span></code></pre>
 				<p>However, using the arrow function invalidates the context specification.</p>
 				<pre><code class="language-javascript"><span class="hljs-comment">// on window</span>
 <span class="hljs-keyword">new</span> Emitter()
-    .on(<span class="hljs-string">'ev'</span>, a =&gt; {
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>, a);
+    .on(<span class="hljs-string">&#x27;ev&#x27;</span>, <span class="hljs-function"><span class="hljs-params">a</span> =&gt;</span> {
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">this</span>, a);
     })
-    .cemit(<span class="hljs-string">'ev'</span>, {<span class="hljs-attr">hoge</span>: <span class="hljs-number">1</span>}, <span class="hljs-number">2</span>) <span class="hljs-comment">// Window 2</span></code></pre>
+    .cemit(<span class="hljs-string">&#x27;ev&#x27;</span>, {<span class="hljs-attr">hoge</span>: <span class="hljs-number">1</span>}, <span class="hljs-number">2</span>) <span class="hljs-comment">// Window 2</span></code></pre>
 				<a href="#events-delete-in-groups" id="events-delete-in-groups" style="color: inherit; text-decoration: none;">
 					<h3>Events delete in groups</h3>
 				</a>
 				<pre><code class="language-javascript"><span class="hljs-keyword">new</span> Emitter()
-    .on(<span class="hljs-string">'ev'</span>, a =&gt; {
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'ev'</span>, a);
+    .on(<span class="hljs-string">&#x27;ev&#x27;</span>, <span class="hljs-function"><span class="hljs-params">a</span> =&gt;</span> {
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;ev&#x27;</span>, a);
     })
-    .on(<span class="hljs-string">'ev'</span>, a =&gt; {
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'ev'</span>, a);
+    .on(<span class="hljs-string">&#x27;ev&#x27;</span>, <span class="hljs-function"><span class="hljs-params">a</span> =&gt;</span> {
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;ev&#x27;</span>, a);
     })
-    .on(<span class="hljs-string">'ev2'</span>, a =&gt; {
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'ev'</span>, a);
+    .on(<span class="hljs-string">&#x27;ev2&#x27;</span>, <span class="hljs-function"><span class="hljs-params">a</span> =&gt;</span> {
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;ev&#x27;</span>, a);
     })
-    .on(<span class="hljs-string">'ev2'</span>, a =&gt; {
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'ev'</span>, a);
+    .on(<span class="hljs-string">&#x27;ev2&#x27;</span>, <span class="hljs-function"><span class="hljs-params">a</span> =&gt;</span> {
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;ev&#x27;</span>, a);
     })
-    .clear(<span class="hljs-string">'ev'</span>)
-    .emit(<span class="hljs-string">'ev'</span>, <span class="hljs-number">1</span>) <span class="hljs-comment">// (nothing)</span>
-    .emit(<span class="hljs-string">'ev2'</span>, <span class="hljs-number">1</span>) <span class="hljs-comment">// ev 1, ev 1</span></code></pre>
+    .clear(<span class="hljs-string">&#x27;ev&#x27;</span>)
+    .emit(<span class="hljs-string">&#x27;ev&#x27;</span>, <span class="hljs-number">1</span>) <span class="hljs-comment">// (nothing)</span>
+    .emit(<span class="hljs-string">&#x27;ev2&#x27;</span>, <span class="hljs-number">1</span>) <span class="hljs-comment">// ev 1, ev 1</span></code></pre>
 				<a href="#all-events-delete-at-once" id="all-events-delete-at-once" style="color: inherit; text-decoration: none;">
 					<h3>All events delete at once</h3>
 				</a>
 				<pre><code class="language-javascript"><span class="hljs-keyword">new</span> Emitter()
-    .on(<span class="hljs-string">'ev'</span>, a =&gt; {
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'ev'</span>, a);
+    .on(<span class="hljs-string">&#x27;ev&#x27;</span>, <span class="hljs-function"><span class="hljs-params">a</span> =&gt;</span> {
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;ev&#x27;</span>, a);
     })
-    .on(<span class="hljs-string">'ev2'</span>, a =&gt; {
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'ev'</span>, a);
+    .on(<span class="hljs-string">&#x27;ev2&#x27;</span>, <span class="hljs-function"><span class="hljs-params">a</span> =&gt;</span> {
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;ev&#x27;</span>, a);
     })
-    .on(<span class="hljs-string">'ev3'</span>, a =&gt; {
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'ev'</span>, a);
+    .on(<span class="hljs-string">&#x27;ev3&#x27;</span>, <span class="hljs-function"><span class="hljs-params">a</span> =&gt;</span> {
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;ev&#x27;</span>, a);
     })
-    .on(<span class="hljs-string">'ev4'</span>, a =&gt; {
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'ev'</span>, a);
+    .on(<span class="hljs-string">&#x27;ev4&#x27;</span>, <span class="hljs-function"><span class="hljs-params">a</span> =&gt;</span> {
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;ev&#x27;</span>, a);
     })
     .clear()
-    .emit(<span class="hljs-string">'ev'</span>, <span class="hljs-number">1</span>) <span class="hljs-comment">// (nothing)</span>
-    .emit(<span class="hljs-string">'ev2'</span>, <span class="hljs-number">1</span>) <span class="hljs-comment">// (nothing)</span>
-    .emit(<span class="hljs-string">'ev3'</span>, <span class="hljs-number">1</span>) <span class="hljs-comment">// (nothing)</span>
-    .emit(<span class="hljs-string">'ev4'</span>, <span class="hljs-number">1</span>) <span class="hljs-comment">// (nothing)</span></code></pre>
+    .emit(<span class="hljs-string">&#x27;ev&#x27;</span>, <span class="hljs-number">1</span>) <span class="hljs-comment">// (nothing)</span>
+    .emit(<span class="hljs-string">&#x27;ev2&#x27;</span>, <span class="hljs-number">1</span>) <span class="hljs-comment">// (nothing)</span>
+    .emit(<span class="hljs-string">&#x27;ev3&#x27;</span>, <span class="hljs-number">1</span>) <span class="hljs-comment">// (nothing)</span>
+    .emit(<span class="hljs-string">&#x27;ev4&#x27;</span>, <span class="hljs-number">1</span>) <span class="hljs-comment">// (nothing)</span></code></pre>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -222,57 +222,14 @@ npm run build</code></pre>
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
-				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
-				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
-				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
-				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
-				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
-				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
-				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
-				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
-				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
-				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
-				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
-				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
-				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
-				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
-				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
-			</ul>
-			<ul class="tsd-legend">
 				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
-				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
 			</ul>
 		</div>
 	</div>
@@ -282,6 +239,5 @@ npm run build</code></pre>
 </div>
 <div class="overlay"></div>
 <script src="assets/js/main.js"></script>
-<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
 </body>
 </html>
