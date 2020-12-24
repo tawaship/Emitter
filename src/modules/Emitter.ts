@@ -1,5 +1,5 @@
 export interface IEmitterDelegate {
-	(...args: unknown[]): void;
+	(...args: any[]): void;
 }
 
 /**
@@ -81,7 +81,7 @@ export class Emitter {
 		return this;
 	}
 	
-	private _emit(type: string, context: unknown, ...args: unknown[]) {
+	private _emit(type: string, context: any, ...args: any[]) {
 		if (!type) {
 			return this;
 		}
@@ -112,7 +112,7 @@ export class Emitter {
 	 * @param type Event type to emit.
 	 * @param args Argument(s) in callback.
 	 */
-	emit(type: string, ...args: unknown[]) {
+	emit(type: string, ...args: any[]) {
 		return this._emit(type, this, ...args);
 	}
 	
@@ -123,11 +123,11 @@ export class Emitter {
 	 * @param context Context to execute the callback.
 	 * @param args Argument(s) in callback.
 	 */
-	cemit(type: string, context: unknown, ...args: unknown[]) {
+	cemit(type: string, context: any, ...args: any[]) {
 		return this._emit(type, context, ...args);
 	}
 	
-	private _emitAll(context: unknown, ...args: unknown[]) {
+	private _emitAll(context: any, ...args: any[]) {
 		if (context == null) {
 			return this;
 		}
@@ -160,7 +160,7 @@ export class Emitter {
 	 * 
 	 * @param args Argument(s) in callback.
 	 */
-	emitAll(...args: unknown[]) {
+	emitAll(...args: any[]) {
 		return this._emitAll(this, ...args);
 	}
 	
@@ -170,7 +170,7 @@ export class Emitter {
 	 * @param context Context to execute the callback.
 	 * @param args Argument(s) in callback.
 	 */
-	cemitAll(context: unknown, ...args: unknown[]) {
+	cemitAll(context: any, ...args: any[]) {
 		return this._emitAll(context, ...args);
 	}
 	
